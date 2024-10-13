@@ -100,35 +100,3 @@ struct NewsListView: View {
         }
     }
 }
-
-/*
-struct NewsListView: View {
-    @StateObject var viewModel: NewsListViewModel
-    @State private var path = NavigationPath()
-    
-    var body: some View {
-        NavigationStack(path: $path) {
-            List(viewModel.articles) { article in
-                NavigationLink(value: article) {
-                    ArticleRowView(article: article)
-                }
-            }
-            .navigationTitle("News")
-            .navigationDestination(for: Article.self) { article in
-                ArticleDetailView(viewModel: ArticleDetailViewModel(article: article, repository: viewModel.repository))
-            }
-            .toolbar {
-                Menu("Category") {
-                    Button("All") { viewModel.setCategory(nil) }
-                    Button("Technology") { viewModel.setCategory("technology") }
-                    Button("Sports") { viewModel.setCategory("sports") }
-                    // Add more categories
-                }
-            }
-        }
-        .task {
-            await viewModel.fetchNews()
-        }
-    }
-}
-*/
